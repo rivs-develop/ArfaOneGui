@@ -6,42 +6,22 @@ using RIVS.ASAK.Core.Contract.DTO;
 
 namespace RIVS.ASAK.ARFA.GUI.Services
 {
-    public interface IArfaConfigurationResolver
-    {
-        ElementDTO GetElementsById(int id);
+    //public interface IArfaConfigurationResolver
+    //{
+    //    int GetArfaNumber();
 
-        float GetJaFromRepers(int id, int cuvetNumber);
+    //    int GetCuvetteCount();
 
-        int GetArfaNumber();
+    //    int GetAnalyticProgramId();
 
-        int GetCuvetteCount();
+    //    IEnumerable<int> GetUsedCuvettesFromAnalyticProgram();
 
-        int GetAnalyticProgramId();
+    //    IEnumerable<ArfaGraphElement> GetGraphElementFromAnalyticProgram();
 
-        IEnumerable<int> GetUsedCuvettesFromAnalyticProgram();
+    //    (string, DateTime) GetAnalyticProgramInfo();
 
-        IEnumerable<ArfaGraphElement> GetGraphElementFromAnalyticProgram();
+    //    bool IsUseAP { get; set; }
 
-        (string, DateTime) GetAnalyticProgramInfo();
-
-        XDocument GetAnalyticProgram();
-
-        void AddReperDataItem(ReperDataItem reperDataItem);
-
-        int GetLastReperHashKey();
-
-        //SubjectSystemType GetSubjectSystemTypeByArfaNumber();
-
-        bool GetIsNeedSaveRepersSpectrum();
-
-        bool GetIsNeedSaveMeasSpectrum();
-
-        XElement GetDeviceManagerConfiguration();
-
-        XElement GetSpectrBlockDeviceManagerConfiguration();
-
-        bool IsUseAP { get; set; }
-
-        void SetUserData(string login, Guid roleId, Guid userId);
-    }
+    //    void SetUserData(string login, Guid roleId, Guid userId);
+    //}
 }

@@ -131,11 +131,5 @@ namespace RIVS.ASAK.Core.Tools
     public class EnvironmentExportAttribute : Attribute
     {
     }
-
-    /// <summary>
-    /// Заполнить список всеми существующими типами ManagedDevice
-    /// </summary>
-    /// <param name="types">Все типы ManagedDevice</param>
-    [EnvironmentExport]
-    public delegate void FillAllManagedEntityTypes(List<ManagedDeviceType> types);
+    
 }

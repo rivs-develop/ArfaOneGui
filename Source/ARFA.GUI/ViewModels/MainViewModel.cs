@@ -18,7 +18,8 @@ namespace RIVS.ASAK.ARFA.GUI.ViewModels
     {
         private readonly ILogger _logger;
         private readonly IEventAggregator _eventAggregator;
-        private readonly IArfaConfigurationResolver _arfaConfigurationResolver;
+        //TODO: данные вместо конфигурации должны получить от бэка
+        //private readonly IArfaConfigurationResolver _arfaConfigurationResolver;
 
         //Максимальное количество важных сообщений на главном окне
         private readonly int _maxCapacity = 20;
@@ -98,8 +99,7 @@ namespace RIVS.ASAK.ARFA.GUI.ViewModels
             ParametersViewModel parametersViewModel,
             MeasurementResultsViewModel measurementResultsViewModel,
             CuvetteBlockViewModelBase cuvetteBlockViewModel,
-            IEventAggregator eventAggregator,
-            IArfaConfigurationResolver arfaConfigurationResolver
+            IEventAggregator eventAggregator
             )
         {
             _logger = loggerFactory.Create(GetType());
@@ -113,9 +113,7 @@ namespace RIVS.ASAK.ARFA.GUI.ViewModels
             ParametersViewModel = parametersViewModel;
             MeasurementResultsViewModel = measurementResultsViewModel;
             CuvetteViewModel = cuvetteBlockViewModel;
-
-            _arfaConfigurationResolver = arfaConfigurationResolver;
-
+            
             //TODO: реализовать подписки
             //eventAggregator.GetEvent<ImportantMessagesUpdatedEvent>().Subscribe(OnImportantMessagesUpdated, ThreadOption.BackgroundThread);
             //eventAggregator.GetEvent<ImportantMessagesReceivedEvent>().Subscribe(OnImportantMessagesReceived, ThreadOption.BackgroundThread);
@@ -190,15 +188,15 @@ namespace RIVS.ASAK.ARFA.GUI.ViewModels
             {
                 GenerateMessageEvent("От Диспетчера получены данные для инициализации");
 
-                // написать имя АП и время активации, подсветить кнопку АП
-                var analyticProgramInfo = _arfaConfigurationResolver.GetAnalyticProgramInfo();
-                _eventAggregator.GetEvent<AnalyticalProgramChangedEvent>().Publish(
-                    new AnalyticalProgramChangedEventArgs(true, analyticProgramInfo.Item1, analyticProgramInfo.Item2));
+                //TODO: написать имя АП и время активации, подсветить кнопку АП
+                //var analyticProgramInfo = _arfaConfigurationResolver.GetAnalyticProgramInfo();
+                //_eventAggregator.GetEvent<AnalyticalProgramChangedEvent>().Publish(
+                //    new AnalyticalProgramChangedEventArgs(true, analyticProgramInfo.Item1, analyticProgramInfo.Item2));
 
-                // подсветить кюветы
-                var highlightCuvetteLst = _arfaConfigurationResolver.GetUsedCuvettesFromAnalyticProgram();
-                _eventAggregator.GetEvent<HighlightCuvetteChangedEvent>().Publish(
-                    new HighlightCuvetteChangedEventArgs(highlightCuvetteLst.ToList()));
+                //TODO: написать имя АП и время активации, подсветить кнопку АП
+                //var highlightCuvetteLst = _arfaConfigurationResolver.GetUsedCuvettesFromAnalyticProgram();
+                //_eventAggregator.GetEvent<HighlightCuvetteChangedEvent>().Publish(
+                //    new HighlightCuvetteChangedEventArgs(highlightCuvetteLst.ToList()));
             }
             else
             {

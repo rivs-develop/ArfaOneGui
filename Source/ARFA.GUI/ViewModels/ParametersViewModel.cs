@@ -209,8 +209,9 @@ namespace RIVS.ASAK.ARFA.GUI.ViewModels
         }
 
 
-        public ParametersViewModel(IEventAggregator eventAggregator,
-            IArfaConfigurationResolver arfaConfigurationResolver)
+        public ParametersViewModel(IEventAggregator eventAggregator
+            //,IArfaConfigurationResolver arfaConfigurationResolver
+            )
         {
 
             _analyticalProgramState = EState.None;
@@ -232,7 +233,8 @@ namespace RIVS.ASAK.ARFA.GUI.ViewModels
             _eventAggregator = eventAggregator;
             _eventAggregator.GetEvent<AnalyticalProgramChangedEvent>().Subscribe(OnAnalyticalProgramChangedEvent);
 
-            ArfaNum = arfaConfigurationResolver.GetArfaNumber().ToString();
+            //TODO: получить номер арфы
+            //ArfaNum = arfaConfigurationResolver.GetArfaNumber().ToString();
 
             //_xrayStateRegistrarChannel = new XrayStateRegistrarChannel();
             //_xrayStateRegistrarChannel.DataReceived += OnXrayDataReceived;

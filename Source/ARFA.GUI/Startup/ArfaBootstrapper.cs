@@ -125,9 +125,9 @@ namespace RIVS.ASAK.ARFA.GUI.Startup
                 .As<IAppConfigurationService>()
                 .SingleInstance();
 
-            builder.RegisterType<ArfaConfigurationResolver>()
-                .As<IArfaConfigurationResolver>()
-                .SingleInstance();
+            //builder.RegisterType<ArfaConfigurationResolver>()
+            //    .As<IArfaConfigurationResolver>()
+            //    .SingleInstance();
 
             // SIGNALR КЛИЕНТ
             builder.Register(c =>
@@ -153,18 +153,13 @@ namespace RIVS.ASAK.ARFA.GUI.Startup
                 .Where(t => typeof(IViewModel).IsAssignableFrom(t))
                 .AsImplementedInterfaces();
 
-            
-            
-            
-            
-
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf().SingleInstance();
 
             builder.RegisterType<MeasurementResultsView>().AsSelf();
             builder.RegisterType<MeasurementResultsViewModel>().AsSelf().SingleInstance();
 
-            //TODO: тут можно придумать, как определять конфигурацию кол-ва кювет. Пока строго прописываем 1 кювету.
+            //TODO: Пока строго прописываем 1 кювету. Надо определять в другом месте, получая данные от сервера.
             builder.RegisterType<CuvetteBlock1View>().AsSelf();
             builder.RegisterType<CuvetteBlock1ViewModel>().As<CuvetteBlockViewModelBase>().SingleInstance();
 
