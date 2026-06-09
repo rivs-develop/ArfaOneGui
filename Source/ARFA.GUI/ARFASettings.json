@@ -1,10 +1,10 @@
-{
+{//TODO:убрать лишнее
   "appConfig": {
     "SystemPartType": "ARFA1",
     "Mode": "Development",
     "Name": "ARFA",
     "ArfaNumber": "1",
-    "NumberOfCuvettes": "10",
+    "NumberOfCuvettes": "1",
     "Festa": "192.168.178.10",
     "Opc": "192.168.15.120:4840",
     "AnalyticalProjectFileName": "NOKF.xml",
