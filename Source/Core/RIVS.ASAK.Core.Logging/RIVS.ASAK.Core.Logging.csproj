@@ -3,7 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <AppendConfigurationToOutputPath>false</AppendConfigurationToOutputPath>
 	  <LangVersion>latest</LangVersion>
+	  <OutputPath>..\..\..\Bin\Debug\ARFA.GUI\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

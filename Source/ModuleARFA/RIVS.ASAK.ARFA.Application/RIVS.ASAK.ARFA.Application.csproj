@@ -1,11 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <AppendConfigurationToOutputPath>false</AppendConfigurationToOutputPath>
 	  <LangVersion>latest</LangVersion>
 	  <AssemblyName>RIVS.ASAK.ARFA.Application</AssemblyName>
 	  <RootNamespace>RIVS.ASAK.ARFA.Application</RootNamespace>
+	  <OutputPath>..\..\..\Bin\Debug\ARFA.GUI\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

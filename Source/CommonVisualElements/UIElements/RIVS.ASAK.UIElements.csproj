@@ -10,8 +10,10 @@
     <LangVersion>latest</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <AppendConfigurationToOutputPath>false</AppendConfigurationToOutputPath>
     <ApplicationIcon />
     <StartupObject />
+	  <OutputPath>..\..\..\Bin\Debug\ARFA.GUI\</OutputPath>
   </PropertyGroup>
 
   <!-- Конфигурации -->

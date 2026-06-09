@@ -3,19 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <AppendConfigurationToOutputPath>false</AppendConfigurationToOutputPath>
 	  <LangVersion>latest</LangVersion>
 	  <AssemblyName>RIVS.ASAK.Core.Contract</AssemblyName>
 	  <RootNamespace>RIVS.ASAK.Core.Contract</RootNamespace>
+	  <OutputPath>..\..\..\Bin\Debug\ARFA.GUI\</OutputPath>
   </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DebugType>full</DebugType>
 		<DebugSymbols>true</DebugSymbols>
-		<OutputPath>bin\Debug\</OutputPath>
+		<OutputPath>..\..\..\Bin\Debug\ARFA.GUI\</OutputPath>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<OutputPath>bin\Release\</OutputPath>
+		<OutputPath>..\..\..\Bin\Debug\ARFA.GUI\</OutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>
