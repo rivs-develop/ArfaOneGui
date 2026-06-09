@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <LangVersion>latest</LangVersion>
+	  <AssemblyName>RIVS.ASAK.Core.Tools</AssemblyName>
+    <RootNamespace>RIVS.ASAK.Core.Tools</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="NLog" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RIVS.ASAK.Core.Contract\RIVS.ASAK.Core.Contract.csproj" />
+  </ItemGroup>
+
+</Project>

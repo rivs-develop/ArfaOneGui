@@ -1,0 +1,83 @@
+{
+  "appConfig": {
+    "SystemPartType": "ARFA1",
+    "Mode": "Development",
+    "Name": "ARFA",
+    "ArfaNumber": "1",
+    "NumberOfCuvettes": "10",
+    "Festa": "192.168.178.10",
+    "Opc": "192.168.15.120:4840",
+    "AnalyticalProjectFileName": "NOKF.xml",
+    "Trace": true,
+    "IsNeedSaveRepersSpectrum": true,
+    "IsNeedSaveMeasSpectrum": true
+  },
+  "devices": [
+    {
+      "DeviceType": "Tube",
+      "DriverType": "MiniX2WinUSB",
+      "Voltage": 40,
+      "Current": 70
+    },
+    {
+      "DeviceType": "Detector",
+      "DriverType": "DP5WinUSB"
+    },
+    {
+      "DeviceType": "Motor",
+      "DriverType": "FESTO",
+      "Ip": "192.168.178.10",
+      "Port": "49700"
+    }
+  ],
+  "messaging": {
+    "ApplicationName": "ARFA"
+  },
+  "rabbitmq": {
+    "queues": [
+      {
+        "id": "ASAKEventToDispKey",
+        "processingtype": "Subscribe",
+        "server": "192.168.15.150",
+        "port": "5672",
+        "exchangeType": "direct",
+        "exchangeName": "ASAKDirectExchange",
+        "queuename": "ASAKEventToDispQueue",
+        "user": "asakuser",
+        "password": "gYBrSS9e4adm",
+        "serviceHealthDependent": true,
+        "intervalPollingQueue": "10000",
+        "lifetime": "00:10:00.000"
+      },
+      {
+        "id": "ASAKDataToDispKey",
+        "processingtype": "Subscribe",
+        "server": "192.168.15.150",
+        "port": "5672",
+        "exchangeType": "direct",
+        "exchangeName": "ASAKDirectExchange",
+        "queuename": "ASAKDataToDispQueue",
+        "user": "asakuser",
+        "password": "gYBrSS9e4adm",
+        "serviceHealthDependent": true,
+        "intervalPollingQueue": "10000",
+        "lifetime": "02:00:00.000"
+      }
+    ]
+  },
+  "webclient": {
+    "ip": "192.168.15.150",
+    "port": "10001"
+  },
+  "CoreNLogOptions": {
+    "UseInService": true,
+    "EnableConsoleLog": true,
+    "EnableFileLog": true,
+    "FileLogPath": "log",
+    "FileLogLevelMax": "Error",
+    "FileLogLevelMin": "Trace",
+    "ConsoleLogLevelMax": "Error",
+    "ConsoleLogLevelMin": "Debug"
+    //"Configuration":  "nlog.config"
+  }
+}

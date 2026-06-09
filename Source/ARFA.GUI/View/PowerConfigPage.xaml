@@ -1,0 +1,125 @@
+﻿<Page x:Class="RIVS.ASAK.ARFA.GUI.View.PowerConfigPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:converters="clr-namespace:RIVS.ASAK.ARFA.GUI.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PowerConfigPage">
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Page.Resources>
+    <Grid Height="74">
+        <StackPanel Orientation="Horizontal">
+            <Separator Width="{Binding PowerButtonSepearatorHeight}" Visibility="Hidden"/>
+
+            <Button x:Name="ShutdownButton" Height="72" Width="72" BorderThickness="1"
+                    Background="Transparent" Content="{StaticResource icoAnalyzerPowerOff}" Click="ShutdownButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                            <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                            <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF2D2D30"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                        </ControlTemplate.Resources>
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Separator Width="100" Visibility="Hidden"/>
+
+            <Button x:Name="RestartButton" Height="72" Width="72" BorderThickness="1"
+                    Background="Transparent" Content="{StaticResource icoAnalyzerRestart}" Click="RestartButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                            <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                            <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF2D2D30"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                        </ControlTemplate.Resources>
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+                <Separator Width="100" Visibility="Hidden"/>
+
+            <Button x:Name="AppExitButton" Visibility="{Binding DevFlag, Converter={StaticResource BoolToVisibilityConverter}}"
+                        Height="72" Width="72" BorderThickness="1" Background="Transparent"
+                    Click="AppExitClick">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                            <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                            <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF2D2D30"/>
+                            <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                        </ControlTemplate.Resources>
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <Path Data = "{StaticResource IcoAppExit}"
+                      Stretch="Uniform" Fill="white"  
+                      Width="64" Height="64" RenderTransformOrigin="0.5,0.5">
+                </Path>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

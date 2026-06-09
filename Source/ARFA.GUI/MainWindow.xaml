@@ -1,0 +1,194 @@
+﻿<Window x:Class="RIVS.ASAK.ARFA.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:RIVS.ASAK.ARFA.GUI.ViewModels"
+        xmlns:view="clr-namespace:RIVS.ASAK.ARFA.GUI.View"
+        xmlns:dateTimeControl="clr-namespace:RIVS.ASAK.UIElements.Controls.DateTimeControl;assembly=RIVS.ASAK.UIElements"
+        xmlns:valueconverters="clr-namespace:RIVS.ASAK.UIElements.Tools.ValueConverters;assembly=RIVS.ASAK.UIElements"
+        mc:Ignorable="d"
+        Left="0" Top="0" WindowStartupLocation="Manual" Height="768" Width="1024" ResizeMode="CanResize" WindowStyle="None" BorderBrush="#FF2D2D30"
+        BorderThickness="3" AllowsTransparency="True" Background="#FF2D2D30">
+    <Window.Resources>
+        <valueconverters:MessageTypeToBrushConverter x:Key="MessageTypeToBrush"/>
+        <DataTemplate DataType="{x:Type vm:ParametersViewModel}">
+            <view:ParametersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MeasurementResultsViewModel}">
+            <view:MeasurementResultsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CuvetteBlock1ViewModel}">
+            <view:CuvetteBlock1View/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CuvetteBlock10ViewModel}">
+            <view:CuvetteBlock10View/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CuvetteBlock15ViewModel}">
+            <view:CuvetteBlock15View/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="7"/>
+            <RowDefinition Height="82"/>
+            <RowDefinition Height="82"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="0.32*"/>
+                <ColumnDefinition Width="0.18*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <ListBox x:Name="LogMessageList" Background="#FF2D2D30" Margin="1,1,1,1" ItemsSource="{Binding LogMessage}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Foreground="{Binding MessageType, Converter={StaticResource MessageTypeToBrush}}">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0:dd-MM-yy HH:mm:ss} {1}">
+                                        <Binding Path="Time"/>
+                                        <Binding Path="Message"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Button x:Name="ButtonSetting" Height="100" Width="90" BorderThickness="2" Background="#FF2D2D30" 
+                    Click="SettingsButtonClick"><!--IsEnabled="{Binding IsBtnSettingsEnabled}"-->
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <ControlTemplate.Resources>
+                                <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                                <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                                <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF2D2D30"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                            </ControlTemplate.Resources>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Path Data = "{StaticResource IcoSettings}"
+                          Stretch="Uniform" Fill="white"  
+                          Width="70" Height="70" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    </Path>
+                </Button>
+
+                <ToggleButton x:Name="AutoModeToggleButton" Background="#FF2D2D30"  BorderThickness="2"
+                              Height="100" Width="90" Checked="CheckButtonAutoMode" Unchecked="UncheckButtonAutoMode">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <ControlTemplate.Resources>
+                                <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                                <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                                <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF2D2D30"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                            </ControlTemplate.Resources>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>-->
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                    <Path Data = "{StaticResource IcoAutoMode}" Stretch="Uniform" Width="70"
+                          Fill="white" Margin="0,0,0,0" RenderTransformOrigin="0,0"/>
+                </ToggleButton>
+
+                <ToggleButton x:Name="StartStopToggleButton" Background="#FF2D2D30" BorderThickness="2"
+                              Height="100" Width="90" Checked="CheckButtonStart" Unchecked="UncheckButtonStart">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <ControlTemplate.Resources>
+                                <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                                <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                                <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF2D2D30"/>
+                                <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                            </ControlTemplate.Resources>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <!--<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>-->
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                    <Path Data = "{StaticResource IcoStart}" Stretch="Uniform" Width="65"
+                          Fill="white" Margin="0,0,0,0" RenderTransformOrigin="0,0"/>
+                </ToggleButton>
+            </StackPanel>
+
+            <Grid Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center">
+                <dateTimeControl:DateTimeControl Height="76" Width="124" x:Name="PART_DateTimeControl" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,4,4,2"/>
+            </Grid>
+
+        </Grid>
+
+        <ContentControl Grid.Row="2" Content="{Binding ParametersViewModel}"/>
+
+        <ContentControl Grid.Row="3" Content="{Binding CuvetteViewModel}"/>
+
+        <ContentControl Grid.Row="4" Content="{Binding MeasurementResultsViewModel}"/>
+
+    </Grid>
+
+</Window>

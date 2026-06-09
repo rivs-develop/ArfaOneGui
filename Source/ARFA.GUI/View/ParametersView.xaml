@@ -1,0 +1,307 @@
+﻿<UserControl x:Class="RIVS.ASAK.ARFA.GUI.View.ParametersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:RIVS.ASAK.ARFA.GUI.Converters"
+             xmlns:viewModels="clr-namespace:RIVS.ASAK.ARFA.GUI.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewModels:ParametersViewModel, IsDesignTimeCreatable=True}"
+             mc:Ignorable="d" 
+             d:DesignHeight="82" d:DesignWidth="1023">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:StateToBrushConverter x:Key="StateToBrush" />
+            <converters:DoubleConverter x:Key="ParametersDoubleConverter" />
+            <converters:CurrentRecordToStringConverter x:Key="ParametersCurrentRecordToStringConverter" />
+            <StreamGeometry x:Shared="False" x:Key="IcoRadiation3">M13.600006,17.9C14.300018,18.299993 15.100006,18.500008 16,18.500008 16.800018,18.500008 17.600006,18.299993 18.200012,17.9L23.800018,27.700022C21.5,29.000011 18.800018,29.799999 15.899994,29.799999 13,29.799999 10.200012,29.000011 7.8999939,27.600016z M16,10.60001C17.800018,10.60001 19.300018,12.100011 19.300018,13.899999 19.300018,15.700018 17.800018,17.200018 16,17.200018 14.200012,17.200018 12.700012,15.700018 12.700012,13.899999 12.700012,12.000005 14.200012,10.60001 16,10.60001z M7.8999939,0.1000061L13.600006,9.8999977C12.300018,10.700016,11.399994,12.200017,11.399994,13.899999L0,13.899999C0,8.0000028,3.2000122,2.899995,7.8999939,0.1000061z M24,0C28.800018,2.7999889,32,7.8999967,32,13.799993L32,13.899999 20.700012,13.899999 20.700012,13.799993C20.700012,12.100011,19.700012,10.60001,18.399994,9.7999915z</StreamGeometry>
+            <StreamGeometry x:Shared="False" x:Key="IcoDpp3">F1 M 10.773,5.7172L 10.773,34.7338C 10.773,36.1851 11.9494,37.3615 13.4007,37.3615C 13.8086,37.3615 14.211,37.2666 14.5759,37.0841L 43.5924,22.5758C 44.8905,21.9268 45.4166,20.3484 44.7676,19.0503C 44.5133,18.5418 44.101,18.1294 43.5924,17.8752L 14.5759,3.36688C 13.2778,2.71786 11.6994,3.24399 11.0504,4.54204C 10.8679,4.90691 10.773,5.30926 10.773,5.7172 M 30,11L 30,1.5  M 30,30L 30,39 M 45.4,20.2L 54.1,20.2 M 11.3,11L 1.5,11 M 11.3,30L 1.5,30 M 14,28L 21,28 M 14,13.5L 21,13.5 M 17.5,10L 17.5,17</StreamGeometry>
+            <StreamGeometry x:Shared="False" x:Key="IcoCuvetteBlock3">M5.3439986,23.560011C5.6959984,24.055012 6.0869982,24.531012 6.5049979,24.973013 7.1139977,25.617012 7.7909972,26.202013 8.5159971,26.709015L7.3689978,28.348017C6.5329978,27.762017 5.7529981,27.089014 5.0509984,26.347014 4.569999,25.837014 4.1199991,25.289013 3.7139988,24.720013z M15.996986,14.187019C14.996987,14.187019 14.184987,15.000018 14.184987,15.999019 14.184987,16.999018 14.996987,17.81202 15.996986,17.81202 16.996985,17.81202 17.808985,16.999018 17.808985,15.999019 17.808985,15.000018 16.996985,14.187019 15.996986,14.187019z M15.996986,12.187019C18.098984,12.187019 19.809983,13.897019 19.809983,15.999019 19.809983,18.102019 18.098984,19.81202 15.996986,19.81202 13.894988,19.81202 12.18399,18.102019 12.18399,15.999019 12.18399,13.897019 13.894988,12.187019 15.996986,12.187019z M15.997001,7.500019C11.310002,7.500019 7.4970009,11.313019 7.4970009,16.000018 7.4970009,20.68702 11.310002,24.500019 15.997001,24.500019 20.684,24.500019 24.497002,20.68702 24.497002,16.000018 24.497002,11.313019 20.684,7.500019 15.997001,7.500019z M15.997001,5.500019C21.787001,5.500019 26.497002,10.210019 26.497002,16.000018 26.497002,21.790018 21.787001,26.500019 15.997001,26.500019 10.207001,26.500019 5.4970009,21.790018 5.4970009,16.000018 5.4970009,10.210019 10.207001,5.500019 15.997001,5.500019z M24.501997,3.5660175C26.062994,4.636016,27.394993,5.9720138,28.458992,7.537011L26.805994,8.6620096C25.881994,7.3040117,24.725996,6.1440133,23.371998,5.2170151z M25.276968,2.0000012C24.757967,2.0000012,24.268969,2.2060013,23.900969,2.5780015L22.06797,4.4250027 21.43297,4.1340028C19.812035,3.3886896,18.103207,2.9887871,16.348515,2.9417106L15.997011,2.9370023 15.997011,2.9380132C8.7940132,2.9380134,2.9340322,8.7970256,2.9340319,16.000002L2.9347543,16.054813 2.9388494,16.352785 2.9505291,16.647271 2.9524998,16.694861 2.9750972,17.035712C3.0936358,18.523358,3.4683888,19.972704,4.0940044,21.358008L4.3750102,21.981024 2.5680351,23.82502C1.8030209,24.604012,1.8070187,25.868019,2.5770073,26.643013L5.3400061,29.424021C5.7080171,29.79603,6.1970303,30.00001,6.7160122,30.00001L6.7170193,30.00001C7.2370078,30.00001,7.7250139,29.795023,8.0930254,29.423014L9.9250252,27.574015 10.561011,27.865031C12.073888,28.560641,13.663333,28.95538,15.295161,29.043194L15.64135,29.057146 15.996976,29.062018C16.222069,29.062018,16.445852,29.056296,16.668184,29.044991L16.704113,29.042706 17.000481,29.023865C23.735504,28.509787,29.059015,22.865368,29.059015,16.000002L29.05995,16.000002 29.059963,15.999009C29.059963,14.149008,28.668965,12.346008,27.899965,10.641007L27.618965,10.018006 29.425965,8.1740049C30.190962,7.3950046,30.186962,6.1310037,29.416964,5.3570031L26.654967,2.5760016C26.285967,2.2050014,25.796967,2.0000012,25.278967,2.0000012z M25.275967,0L25.278967,0C26.333966,0,27.326966,0.41400027,28.073965,1.1660008L30.835963,3.9470025C32.372959,5.4940032,32.380963,8.0180048,30.853962,9.5750059L29.992964,10.454007C30.700962,12.229007 31.059962,14.091009 31.059962,15.999009 31.059962,19.762667 29.6726,23.208283 27.382412,25.851317L27.382042,25.851735 27.381548,25.852318C24.617636,29.042193 20.538801,31.063031 15.997011,31.063031 15.755137,31.063031 15.513996,31.057249 15.273671,31.045706L15.181771,31.040182 15.143688,31.038611 15.063307,31.03306 14.913803,31.024073 14.826673,31.01672 14.720428,31.009385 14.592509,30.99696 14.555217,30.993813 14.514574,30.98939 14.29954,30.968504C13.040526,30.828406,11.814734,30.53129,10.632843,30.079829L10.364251,29.972891 9.5140145,30.831036C8.7670052,31.584027,7.7750017,31.999035,6.7180264,32.000012L6.7160122,32.000012C5.6600129,32.000012,4.6680095,31.58601,3.921031,30.834027L1.1580323,28.053019C-0.37898448,26.50602,-0.38698008,23.981026,1.1400269,22.425024L1.9930646,21.554146 1.9231913,21.379597C1.4176962,20.063225,1.1045594,18.691626,0.98695448,17.279942L0.97443226,17.099127 0.97182873,17.067772 0.96929863,17.025004 0.95754221,16.855248 0.95355681,16.758892 0.95084122,16.712986 0.94598177,16.575745 0.93988064,16.42824 0.93932513,16.387753 0.93823746,16.357041 0.93421582,16.015512 0.93398932,15.999009C0.93398944,7.6940044 7.6909835,0.93700056 15.996976,0.93700062 17.931975,0.93700056 19.820973,1.3060008 21.62097,2.0370014L22.479969,1.1690006C23.22597,0.41600025,24.218968,0,25.275967,0z</StreamGeometry>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="156*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="173*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" x:Name="buttonXRAY" 
+              Background="{Binding XrayState, Converter={StaticResource StateToBrush}}" 
+              Margin="3,0">
+            <Path Data = "{StaticResource IcoRadiation3}" Stretch="Uniform"
+                  Fill="#FFFFFFFF" Width="64" Height="64" Margin="0,0,0,0"
+                  RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
+        <!--<Grid Grid.Column="0">
+            <Button x:Name="buttonXRAY" 
+                    Background="{Binding XrayState, Converter={StaticResource StateToBrush}}" 
+                    Margin="3,0"  Padding="5" BorderThickness="0">
+                <Path Data = "{StaticResource IcoRadiation3}" Stretch="Uniform" Fill="#FFFFFFFF"
+                      Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+            </Button>
+        </Grid>-->
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="14*" />
+                <ColumnDefinition Width="11*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="U, кВ :" Height="30" Margin="0,-2,0,27" Grid.RowSpan="2"/>
+            <Label Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="I, мкА :" Height="30" Margin="0,26" Grid.RowSpan="3"/>
+            <Label Grid.Row="1" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="t, C :" Height="30" Margin="0,26,0,-1" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,2,0,3"
+                     Text="{Binding XrayVoltage, Mode=OneWay}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,3"
+                     Text="{Binding XrayCurrent, Converter={StaticResource ParametersDoubleConverter}}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,3,0,2"
+                     Text="{Binding XrayTemperature, Converter={StaticResource ParametersDoubleConverter}}"/>
+
+            <!--<StackPanel Grid.Column="0">
+                    <WrapPanel Height="26">
+                        <Label x:Name ="CurrentU" FontSize="15" Foreground="LightGray"  Content="U, кВ :"/>
+                    </WrapPanel>
+                    <WrapPanel Height="26">
+                        <Label x:Name ="CurrentI" FontSize="15" Foreground="LightGray"  Content="I, мкА :"/>
+                    </WrapPanel>
+                    <WrapPanel Height="26">
+                        <Label x:Name ="CurrentTXRAY" FontSize="15" Foreground="LightGray"  Content="t, C :"/>
+                    </WrapPanel>
+                </StackPanel>-->
+        </Grid>
+
+        <Grid Grid.Column="2" x:Name="buttonDPP"
+                        Background="{Binding DppState, Converter={StaticResource StateToBrush}}"
+                        Margin="3,0">
+            <Path Data = "{StaticResource IcoDpp3}" StrokeThickness="3"
+                      Stroke="#FFFFFFFF" Stretch="Uniform" Width="72" Height="72"
+                      Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
+        <!--<Grid Grid.Column="2">
+            <Button x:Name="buttonDPP"
+                        Background="{Binding DppState, Converter={StaticResource StateToBrush}}"
+                        Margin="3,0"  Padding="5" BorderThickness="0">
+                <Path Data = "{StaticResource IcoDpp3}" StrokeThickness="3" Stroke="#FFFFFFFF" Stretch="Uniform" Width="72" Height="72" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+            </Button>
+        </Grid>-->
+
+        <Grid Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="Real Time, c :" Height="30" Margin="0,-2,0,27" Grid.RowSpan="2"/>
+            <Label Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="DT, % :" Height="30" Margin="0,26" Grid.RowSpan="3"/>
+            <Label Grid.Row="1" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="t, C :" Height="30" Margin="0,26,0,-1" Grid.RowSpan="2"/>
+            <TextBox Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,2,0,3"
+                     Text="{Binding DppRealTime, Converter={StaticResource ParametersDoubleConverter}}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,3"
+                     Text="{Binding DppCurrentDT, Converter={StaticResource ParametersDoubleConverter}}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,3,0,2"
+                     Text="{Binding DppTemperature, Converter={StaticResource ParametersDoubleConverter}}"/>
+            <!--<StackPanel Grid.Column="0">
+                <WrapPanel Height="26">
+                    <Label x:Name="CurrentRT" FontSize="15" Foreground="LightGray"  Content="Real Time, c :"/>
+                </WrapPanel>
+                <WrapPanel Height="26">
+                    <Label x:Name="CurrentDT"  FontSize="15" Foreground="LightGray"  Content="DT, % :"/>
+                </WrapPanel>
+                <WrapPanel Height="26">
+                    <Label x:Name="CurrentTDPP" FontSize="15" Foreground="LightGray"  Content="t, C :"/>
+                </WrapPanel>
+            </StackPanel>-->
+        </Grid>
+
+        <Grid Grid.Column="4" x:Name="buttonCVE"
+                        Background="{Binding CveState,Converter={StaticResource StateToBrush}}"
+                        Margin="3,0" >
+            <Path Data = "{StaticResource IcoCuvetteBlock3}" StrokeThickness="3"
+                      Stroke="#FFFFFFFF" Stretch="Uniform" Width="72" Height="72"
+                      Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
+        <!--<Grid Grid.Column="4">
+            <Button x:Name="buttonCVE"
+                        Background="{Binding CveState, Converter={StaticResource StateToBrush}}"
+                        Margin="3,0"  Padding="5" BorderThickness="0">
+                <Path Data = "{StaticResource IcoCuvetteBlock3}" StrokeThickness="3" Stroke="#FFFFFFFF" Stretch="Uniform" Width="72" Height="72" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+            </Button>
+        </Grid>-->
+        <Grid Grid.Column="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="89*" />
+                <ColumnDefinition Width="57*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="Кювета № :" Height="30" Margin="0,2"/>
+            <Label Grid.Row="1" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="Поз, мм :" Height="30" Margin="0,2,0,1"/>
+            <Label Grid.Row="2" Grid.Column="0" FontSize="15" Foreground="LightGray" VerticalAlignment="Center" Content="Цель, мм :" Height="30" Margin="0,1,0,2"/>
+            <TextBox Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,7"
+                     Text="{Binding CveCurrentRecord, Converter={StaticResource ParametersCurrentRecordToStringConverter}}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,6,0,7"
+                     Text="{Binding CveActualPosition, Converter={StaticResource ParametersDoubleConverter}}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15" 
+                     Background ="{x:Null}" 
+                     Foreground="LightGray" 
+                     VerticalAlignment="Center"
+                     Height="22" Margin="0,7,0,6"
+                     Text="{Binding CveTargetPosition, Converter={StaticResource ParametersDoubleConverter}}"/>
+
+            <!--<StackPanel Grid.Column="0">
+                <WrapPanel Height="26">
+                    <Label x:Name ="CurrentC" FontSize="15" Foreground="LightGray"  Content="Кювета № :"/>
+                </WrapPanel>
+                <WrapPanel Height="26">
+                    <Label x:Name ="CurrentP" FontSize="15" Foreground="LightGray"  Content="Поз, мм :"/>
+                </WrapPanel>
+                <WrapPanel Height="26">
+                    <Label x:Name ="CurrentT" FontSize="15" Foreground="LightGray"  Content="Цель, мм :"/>
+                </WrapPanel>
+            </StackPanel>-->
+        </Grid>
+
+        <Grid Grid.Column="6">
+            <Label x:Name="buttonAP" Content="AП" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   Foreground="White" FontSize="52" FontWeight="DemiBold" Padding="0,0,0,8"
+                        Background="{Binding AnalyticalProgramState, Converter={StaticResource StateToBrush}}"
+                        BorderThickness="0"/>
+        </Grid>
+
+        <Grid Grid.Column="7" Margin="10,5,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" BorderThickness="0" IsReadOnly="True" Foreground="LightGray" Background="{x:Null}"
+                     FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"
+                     SpellCheck.IsEnabled="False" 
+                     TextWrapping="Wrap"
+                     AcceptsTab="True" 
+                     MinLines="5"
+                     MaxLines="5"
+                     Text="{Binding ArfaNum}"
+                     Width="149"/>
+            <TextBox Grid.Row="1" BorderThickness="0" IsReadOnly="True" Foreground="LightGray" Background="{x:Null}"
+                     FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"
+                     SpellCheck.IsEnabled="False"
+                     TextWrapping="Wrap"
+                     AcceptsTab="True" 
+                     MinLines="5"
+                     MaxLines="5"
+                     Text="{Binding ApName}"
+                     Width="149" Margin="0,1"/>
+            <TextBox Grid.Row="2" BorderThickness="0" IsReadOnly="True" Foreground="LightGray" Background="{x:Null}"
+                     FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     SpellCheck.IsEnabled="False" 
+                     TextWrapping="Wrap"
+                     AcceptsTab="True" 
+                     MinLines="5"
+                     MaxLines="5"
+                     Text="{Binding ApModifyDate}" 
+                     Margin="0,0,0,-3"
+                     Width="149" Height="22" RenderTransformOrigin="0.461,0.63"/>
+        </Grid>
+
+        <!--<ComboBox x:Name="AP"  Background="{x:Null}" Foreground="LightGray" FontSize="18" Margin="10,27" SelectionChanged="ComboBox_Selected">
+                    <ComboBox.Resources>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ComboBox">
+                                        <Grid>
+                                            <ToggleButton Grid.Column="2" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" >
+                                                <ToggleButton.Template>
+                                                    <ControlTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="5*" />
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border x:Name="Border"  Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="white" BorderThickness="1" />
+                                                            <Border Grid.Column="0" CornerRadius="5,0,0,5"  Margin="1"  Background="{x:Null}"  BorderBrush="white" BorderThickness="0,0,1,0" />
+                                                            <Path x:Name="Arrow" Grid.Column="1"  Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                                                                <Setter TargetName="Border" Property="Background" Value="#FF969696" />
+                                                            </Trigger>
+                                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                                <Setter TargetName="Border" Property="Background" Value="#FF969696" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </ToggleButton.Template>
+                                            </ToggleButton>
+                                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3"  />
+                                            <TextBox x:Name="PART_EditableTextBox" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True"  Focusable="False" PopupAnimation="Slide">
+                                                <Grid  Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                                    <Border x:Name="DropDownBorder" Background="#FF646464" />
+                                                    <ScrollViewer SnapsToDevicePixels="True">
+                                                        <StackPanel IsItemsHost="True" />
+                                                    </ScrollViewer>
+                                                </Grid>
+                                            </Popup>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Resources>
+
+                </ComboBox>
+            </Grid>-->
+
+    </Grid>
+</UserControl>

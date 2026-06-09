@@ -1,0 +1,97 @@
+﻿<Window x:Class="RIVS.ASAK.UIElements.Authentication.AuthenticationWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RIVS.ASAK.UIElements.Authentication"
+        mc:Ignorable="d" 
+        Title="AuthenticationWindow" Height="235" Width="305" 
+        MaxWidth="960" MaxHeight="630" ResizeMode="NoResize"
+        WindowStyle="None" WindowStartupLocation="CenterScreen" BorderThickness="1" Background="#FF2D2D30" BorderBrush="#FF007ACC">
+    <!--MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"-->
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Path x:Key="IconClose" Data="M8.00191 9.41621C7.61138 9.02569
+              7.61138 8.39252 8.00191 8.002C8.39243 7.61147 9.0256 7.61147
+              9.41612 8.002L12.0057 10.5916L14.5896 8.00771C14.9801 7.61719
+              15.6133 7.61719 16.0038 8.00771C16.3943 8.39824 16.3943 9.0314
+              16.0038 9.42193L13.4199 12.0058L16.0039 14.5897C16.3944 14.9803
+              16.3944 15.6134 16.0039 16.004C15.6133 16.3945 14.9802 16.3945
+              14.5896 16.004L12.0057 13.42L9.42192 16.0038C9.03139 16.3943
+              8.39823 16.3943 8.00771 16.0038C7.61718 15.6133 7.61718 14.9801
+              8.00771 14.5896L10.5915 12.0058L8.00191 9.41621Z" Stroke="White" />
+        <Style x:Key="TitleBarButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" BorderThickness="1"
+                                BorderBrush="Transparent" Background="Transparent">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"
+                                              ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DimGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="TitleBar" Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBlock x:Name="TitleTextBlock" Foreground="White" Margin="10,0,0,0" 
+                       FontSize="16" Text="{Binding TitleText}"/>
+        </WrapPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <!-- <Button Style="{StaticResource TitleBarButtonStyle}" Background="Transparent" 
+                    x:Name="AppMinimizeButton"  Width="25" Click="MinimizeButton_Click" BorderBrush="Transparent" >
+                <Image Source="Images/Minimize.png" Height="24" Width="24"/>
+            </Button>
+            <Button Style="{StaticResource TitleBarButtonStyle}" Background="Transparent" 
+                    x:Name="AppMaximizeButton"  Width="25" Click="MaximizeButton_Click" BorderBrush="Transparent">
+                <Image Source="Images/Maximize.png" Height="24" Width="24"/>
+            </Button>-->
+            <Button Style="{StaticResource TitleBarButtonStyle}" Background="Transparent" 
+                    x:Name="AppCloseButton"  Width="25" Click="CloseButton_Click" BorderBrush="Transparent" IsTabStop="False">
+                <ContentControl Height="24" Width="24" Content="{StaticResource IconClose}" IsTabStop="False" Focusable="False"/>
+                <!--<Image Source="../Images/Close.png" Height="24" Width="24"/>-->
+            </Button>
+        </StackPanel>
+        <GridSplitter HorizontalAlignment="Stretch" ResizeBehavior="PreviousAndNext" IsEnabled="False"
+                      Margin="5,0" Grid.Row="1" Background="#FF686868" Height="3" VerticalAlignment="Top" Focusable="False" IsTabStop="False" Cursor="SizeNS" />
+        <Grid Grid.Row="1">
+            <Button x:Name="OkButton" Content="{Binding OkButtonContent}" Margin="0,0,25,25"
+                    FontSize="14" Command="{Binding AsyncAuthCommand}" Height="23" VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right" Width="81"/>
+            <PasswordBox x:Name="UserPasswordBox" VerticalContentAlignment="Center"
+                         MaxLength="32" Margin="25,100,25,0"
+                         VerticalAlignment="Top" Height="27" FontSize="14" KeyDown="UserPasswordBox_KeyDown"/>
+            <TextBox x:Name="UserLoginTextBox" IsEnabled="{Binding LoginIsEnabled}" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" 
+                     VerticalContentAlignment="Center"
+                     MaxLength="32" Margin="25,39,25,0"
+                     TextWrapping="Wrap" VerticalAlignment="Top"
+                     Height="27" FontSize="14" KeyDown="UserLoginTextBox_KeyDown"/>
+            <Label Content="Логин:" HorizontalAlignment="Left"
+                   Margin="25,10,0,0" VerticalAlignment="Top"
+                   Foreground="White" FontSize="14"/>
+            <Label Content="Пароль:" HorizontalAlignment="Left"
+                   Margin="25,71,0,0" VerticalAlignment="Top"
+                   Foreground="White" FontSize="14"/>
+            <Label Name="ResultMessage" Content="{Binding AuthenticationMessage}"
+                   HorizontalContentAlignment="Left" Margin="25,132,0,0"
+                   VerticalAlignment="Top" Foreground="Red" FontSize="12"
+                   HorizontalAlignment="Left" Width="255" />
+        </Grid>
+    </Grid>
+</Window>

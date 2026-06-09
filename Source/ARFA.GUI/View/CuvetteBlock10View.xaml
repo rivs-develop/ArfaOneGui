@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="RIVS.ASAK.ARFA.GUI.View.CuvetteBlock10View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:RIVS.ASAK.ARFA.GUI.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewModels:CuvetteBlock10ViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="1023">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <StreamGeometry x:Shared="False" x:Key="Cuvette">M5.3439986,23.560011C5.6959984,24.055012 6.0869982,24.531012 6.5049979,24.973013 7.1139977,25.617012 7.7909972,26.202013 8.5159971,26.709015 L7.3689978,28.348017 C6.5329978,27.762017 5.7529981,27.089014 5.0509984,26.347014 4.569999,25.837014 4.1199991,25.289013 3.7139988,24.720013z M15.997001,7.500019C11.310002,7.500019 7.4970009,11.313019 7.4970009,16.000018 7.4970009,20.68702 11.310002,24.500019 15.997001,24.500019 20.684,24.500019 24.497002,20.68702 24.497002,16.000018 24.497002,11.313019 20.684,7.500019 15.997001,7.500019z M15.997001,5.500019C21.787001,5.500019 26.497002,10.210019 26.497002,16.000018 26.497002,21.790018 21.787001,26.500019 15.997001,26.500019 10.207001,26.500019 5.4970009,21.790018 5.4970009,16.000018 5.4970009,10.210019 10.207001,5.500019 15.997001,5.500019z M24.501997,3.5660175C26.062994,4.636016,27.394993,5.9720138,28.458992,7.537011L26.805994,8.6620096C25.881994,7.3040117,24.725996,6.1440133,23.371998,5.2170151z M25.276968,2.0000012C24.757967,2.0000012,24.268969,2.2060013,23.900969,2.5780015L22.06797,4.4250027 21.43297,4.1340028C19.812035,3.3886896,18.103207,2.9887871,16.348515,2.9417106L15.997011,2.9370023 15.997011,2.9380132C8.7940132,2.9380134,2.9340322,8.7970256,2.9340319,16.000002L2.9347543,16.054813 2.9388494,16.352785 2.9505291,16.647271 2.9524998,16.694861 2.9750972,17.035712C3.0936358,18.523358,3.4683888,19.972704,4.0940044,21.358008L4.3750102,21.981024 2.5680351,23.82502C1.8030209,24.604012,1.8070187,25.868019,2.5770073,26.643013L5.3400061,29.424021C5.7080171,29.79603,6.1970303,30.00001,6.7160122,30.00001L6.7170193,30.00001C7.2370078,30.00001,7.7250139,29.795023,8.0930254,29.423014L9.9250252,27.574015 10.561011,27.865031C12.073888,28.560641,13.663333,28.95538,15.295161,29.043194L15.64135,29.057146 15.996976,29.062018C16.222069,29.062018,16.445852,29.056296,16.668184,29.044991L16.704113,29.042706 17.000481,29.023865C23.735504,28.509787,29.059015,22.865368,29.059015,16.000002L29.05995,16.000002 29.059963,15.999009C29.059963,14.149008,28.668965,12.346008,27.899965,10.641007L27.618965,10.018006 29.425965,8.1740049C30.190962,7.3950046,30.186962,6.1310037,29.416964,5.3570031L26.654967,2.5760016C26.285967,2.2050014,25.796967,2.0000012,25.278967,2.0000012z M25.275967,0L25.278967,0C26.333966,0,27.326966,0.41400027,28.073965,1.1660008L30.835963,3.9470025C32.372959,5.4940032,32.380963,8.0180048,30.853962,9.5750059L29.992964,10.454007C30.700962,12.229007 31.059962,14.091009 31.059962,15.999009 31.059962,19.762667 29.6726,23.208283 27.382412,25.851317L27.382042,25.851735 27.381548,25.852318C24.617636,29.042193 20.538801,31.063031 15.997011,31.063031 15.755137,31.063031 15.513996,31.057249 15.273671,31.045706L15.181771,31.040182 15.143688,31.038611 15.063307,31.03306 14.913803,31.024073 14.826673,31.01672 14.720428,31.009385 14.592509,30.99696 14.555217,30.993813 14.514574,30.98939 14.29954,30.968504C13.040526,30.828406,11.814734,30.53129,10.632843,30.079829L10.364251,29.972891 9.5140145,30.831036C8.7670052,31.584027,7.7750017,31.999035,6.7180264,32.000012L6.7160122,32.000012C5.6600129,32.000012,4.6680095,31.58601,3.921031,30.834027L1.1580323,28.053019C-0.37898448,26.50602,-0.38698008,23.981026,1.1400269,22.425024L1.9930646,21.554146 1.9231913,21.379597C1.4176962,20.063225,1.1045594,18.691626,0.98695448,17.279942L0.97443226,17.099127 0.97182873,17.067772 0.96929863,17.025004 0.95754221,16.855248 0.95355681,16.758892 0.95084122,16.712986 0.94598177,16.575745 0.93988064,16.42824 0.93932513,16.387753 0.93823746,16.357041 0.93421582,16.015512 0.93398932,15.999009C0.93398944,7.6940044 7.6909835,0.93700056 15.996976,0.93700062 17.931975,0.93700056 19.820973,1.3060008 21.62097,2.0370014L22.479969,1.1690006C23.22597,0.41600025,24.218968,0,25.275967,0z</StreamGeometry>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid >
+        <!--будет время - переделать в стиль-->
+        <StackPanel x:Name="SpCuvetteBlock" HorizontalAlignment="Center" Orientation="Horizontal" >
+
+            <Button Name="Button1" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="1">
+                <Grid>
+                    <Path Name="Reper1" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="P1" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden" />
+
+            <Button Name="Button2" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="2">
+                <Grid>
+                    <Path Name="Reper2" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="P2" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button3" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="3">
+                <Grid>
+                    <Path Name="Cuvette1" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="1" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button4" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="4">
+                <Grid>
+                    <Path Name="Cuvette2" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="2" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button5" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="5">
+                <Grid>
+                    <Path Name="Cuvette3" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="3" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+            <Button Name="Button6" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="6">
+                <Grid>
+                    <Path Name="Cuvette4" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="4" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button7" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="7">
+                <Grid>
+                    <Path Name="Cuvette5" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="5" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button8" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="8">
+                <Grid>
+                    <Path Name="Cuvette6" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="6" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button9" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="9">
+                <Grid>
+                    <Path Name="Cuvette7" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="7" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button10" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="10">
+                <Grid>
+                    <Path Name="Cuvette8" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="8" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button11" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="11">
+                <Grid>
+                    <Path Name="Cuvette9" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="9" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+            <Button Name="Button12" Width="75" Height="75" BorderThickness="0" Background="#FF2D2D30" Command = "{Binding CuvetteClickCommand}" CommandParameter="12">
+                <Grid>
+                    <Path Name="Cuvette10" Data = "{StaticResource Cuvette}" Stretch="Uniform" Fill="white"  Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"></Path>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" Text="10" Margin="20,18,20,20"/>
+                </Grid>
+            </Button>
+
+            <Separator Width="10" Visibility="Hidden"/>
+
+
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	  <LangVersion>latest</LangVersion>
+	  <AssemblyName>RIVS.ASAK.ARFA.Application</AssemblyName>
+	  <RootNamespace>RIVS.ASAK.ARFA.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\RIVS.ASAK.Core.Contract\RIVS.ASAK.Core.Contract.csproj" />
+  </ItemGroup>
+
+</Project>
